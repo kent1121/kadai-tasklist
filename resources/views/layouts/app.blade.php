@@ -8,9 +8,18 @@
     </head>
 
     <body>
-
-        @include('commons.navbar')
-        
+        <header class="mb-4">
+            @include('commons.navbar')
+            @if (session('flash_success'))
+                <div class="alert alert-success text-center">
+                    {{ session('flash_success') }}
+                </div>
+            @elseif (session('flash_danger'))
+                <div class="alert alert-danger text-center">
+                    {{ session('flash_danger') }}
+                </div>
+            @endif
+        </header>
         <div class="container">
             @include('commons.error_messages')
             
